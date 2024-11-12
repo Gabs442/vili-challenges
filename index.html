@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40 Предизвикателства за Вили</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #8B0000;
+        }
+        .task {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вили, навръх твоя 40-ти рожден ден!</h1>
+    <p>Отправям към теб 40 предизвикателства, които да изпълниш до твоя 50-годишен юбилей! Вярвай в себе си, забавлявай се и дерзай!</p>
+    <div id="tasks"></div>
+
+    <script>
+        const tasks = [
+            "Благодари на човек, който е донесъл нещо специално и значимо в живота ти.",
+            "Вземи си домашен любимец.",
+            "Гмуркай се.",
+            "Запиши се на курс за медицинска помощ.",
+            "Запиши се на курс по фотография.",
+            "Засади дърво.",
+            "Застани под водопад.",
+            "Изкачи едно дърво.",
+            "Изкачи Мусала.",
+            "Използвай паспорта си – отиди на мечтано място.",
+            "Качи се на самолет.",
+            "Наблюдавай нощното небе.",
+            "Намери нов приятел.",
+            "Напиши стихотворение.",
+            "Направи нещо екстремно- рафтинг, бънджи, парашут.",
+            "Направи нещо наистина смело- изправи се и преодолей един твой страх.",
+            "Направи нощно плуване в морето.",
+            "Направи си живописна разходка с влак.",
+            "Направи си истински пикник- с карирано одеало и кошница за пикник.",
+            "Направи си план за ранно пенсиониране.",
+            "Направи си родословно дърво.",
+            "Направи торта.",
+            "Нареди пъзел от 1000 части.",
+            "Нарисувай картина.",
+            "Обиколи с колело цялото българско крайбрежие.",
+            "Организирай незабравимо тържество за твоя 50-ти рожден ден.",
+            "Отиди на концерт.",
+            "Отиди на круиз.",
+            "Отиди на риболов.",
+            "Посети 100-те национални туристически обекта.",
+            "Посети автокино.",
+            "Посети едно от съвременните чудеса на света.",
+            "Практикувай SUP (stand up paddle board).",
+            "Пробягай маратон.",
+            "Прости на някого.",
+            "Спести 1 000 000 лв.",
+            "Спи на плажа.",
+            "Участвай в караоке.",
+            "Участвай в състезание по планинско колоездене.",
+            "Язди кон."
+        ];
+
+        const tasksContainer = document.getElementById('tasks');
+
+        function loadTasks() {
+            tasks.forEach((task, index) => {
+                const taskElement = document.createElement('div');
+                taskElement.classList.add('task');
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `task-${index}`;
+                checkbox.checked = localStorage.getItem(`task-${index}`) === 'true';
+
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`task-${index}`, checkbox.checked);
+                });
+
+                const label = document.createElement('label');
+                label.htmlFor = `task-${index}`;
+                label.textContent = task;
+
+                taskElement.appendChild(checkbox);
+                taskElement.appendChild(label);
+                tasksContainer.appendChild(taskElement);
+            });
+        }
+
+        loadTasks();
+    </script>
+</body>
+</html>
